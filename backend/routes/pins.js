@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const Pin = require("../Models/Pin");
+const Pin = require("../models/Pin");
 
-//create a pin
+// Create a pin
 router.post("/", async (req, res) => {
   const newPin = new Pin(req.body);
   try {
@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-//get all pins
+// Get all pins
 router.get("/", async (req, res) => {
   try {
     const pins = await Pin.find();
@@ -23,4 +23,3 @@ router.get("/", async (req, res) => {
 });
 
 module.exports = router;
-

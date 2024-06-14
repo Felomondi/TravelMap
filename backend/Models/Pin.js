@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const PinSchema = new mongoose.Schema({
     username: {
@@ -8,7 +8,7 @@ const PinSchema = new mongoose.Schema({
     desc: {
         type: String,
         required: true,
-        min: 3,
+        minlength: 3,
     },
     rating: {
         type: Number,
@@ -24,8 +24,6 @@ const PinSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-},
-{timestamps: true}
-);
+}, { timestamps: true });
 
-module.exports = mongoose.model("User", PinSchema);
+module.exports = mongoose.models.Pin || mongoose.model("Pin", PinSchema);
